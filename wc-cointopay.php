@@ -32,7 +32,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
         public function __construct()
         {
             $this->id   = 'cointopay';
-            $this->icon = plugins_url( 'assets/images/crypto.png', __FILE__ );
+            $this->icon = plugins_url( 'images/crypto.png', __FILE__ );
             $this->init_form_fields();
             $this->init_settings();
             $this->title          = $this->get_option( 'title' );
@@ -200,7 +200,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
             $response         = $this->validate_order( $data );
             if ( $response->Status !== $ordstatus ) {
                 get_header();
-                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'assets/images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">01 - We have detected different order status. Your order has been halted.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;" >Back</a><br><br></div></div></div>';
+                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">01 - We have detected different order status. Your order has been halted.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;" >Back</a><br><br></div></div></div>';
                 get_footer();
                 exit;
             } elseif ( intval( $response->CustomerReferenceNr ) === $orderid ) {
@@ -212,31 +212,31 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                         $order->update_status( 'processing', sprintf( __( 'IPN: Payment completed notification from Cointopay', 'woocommerce' ) ) );
                     }
                     get_header();
-                    echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#0fad00">Success!</h2><img src="' . esc_url( plugins_url( 'assets/images/check.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">The payment has been received and confirmed successfully.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #0fad00;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;" >Back</a><br><br><br><br></div></div></div>';
+                    echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#0fad00">Success!</h2><img src="' . esc_url( plugins_url( 'images/check.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">The payment has been received and confirmed successfully.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #0fad00;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;" >Back</a><br><br><br><br></div></div></div>';
                     get_footer();
                     exit;
                 } elseif ( 'failed' === $ordstatus ) {
                     $order->update_status( 'pending', sprintf( __( 'IPN: Payment failed notification from Cointopay because not enough or time limit reached', 'woocommerce' ) ) );
                     get_header();
-                    echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'assets/images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">The payment has been failed.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;" >Back</a><br><br><br><br></div></div></div>';
+                    echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">The payment has been failed.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;" >Back</a><br><br><br><br></div></div></div>';
                     get_footer();
                     exit;
                 } else {
                     $order->update_status( 'failed', sprintf( __( 'IPN: Payment failed notification from Cointopay', 'woocommerce' ) ) );
                     get_header();
-                    echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'assets/images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">The payment has been failed.</p><a href="' . esc_url( site_url() ) . '" style="background-color:#ff0000;border:none;color: white;padding:15px 32px;text-align: center;text-decoration:none;display:inline-block;font-size:16px;">Back</a><br><br><br><br></div></div></div>';
+                    echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">The payment has been failed.</p><a href="' . esc_url( site_url() ) . '" style="background-color:#ff0000;border:none;color: white;padding:15px 32px;text-align: center;text-decoration:none;display:inline-block;font-size:16px;">Back</a><br><br><br><br></div></div></div>';
                     get_footer();
                     exit;
                 }
             } elseif ( 'not found' === $response ) {
                 $order->update_status( 'failed', sprintf( __( 'We have detected different order status. Your order has not been found.', 'woocommerce' ) ) );
                 get_header();
-                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'assets/images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">02 - We have detected different order status. Your order has not been found..</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;">Back</a><br><br><br><br></div></div></div>';
+                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">02 - We have detected different order status. Your order has not been found..</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;">Back</a><br><br><br><br></div></div></div>';
                 get_footer();
             } else {
                 $order->update_status( 'failed', sprintf( __( 'We have detected different order status. Your order has been halted.', 'woocommerce' ) ) );
                 get_header();
-                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'assets/images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">030 - We have detected different order status. Your order has been halted.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;">Back</a><br><br><br><br></div></div></div>';
+                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">030 - We have detected different order status. Your order has been halted.</p><a href="' . esc_url( site_url() ) . '" style="background-color: #ff0000;border: none;color: white; padding: 15px 32px; text-align: center;text-decoration: none;display: inline-block; font-size: 16px;">Back</a><br><br><br><br></div></div></div>';
                 get_footer();
             }
         }
@@ -269,7 +269,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                 return $results;
             } elseif ( '"not found"' === $response ) {
                 get_header();
-                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'assets/images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">Your order not found.</p><a href="' . esc_url( site_url() ) . '" style="background-color:#ff0000;border:none;color:white;padding: 15px 32px;text-align: center;text-decoration:none;display:inline-block;font-size:16px;">Back</a><br><br></div></div></div>';
+                echo '<div class="container" style="text-align: center;"><div><div><br><br><h2 style="color:#ff0000">Failure!</h2><img src="' . esc_url( plugins_url( 'images/fail.png', __FILE__ ) ) . '"><p style="font-size:20px;color:#5C5C5C;">Your order not found.</p><a href="' . esc_url( site_url() ) . '" style="background-color:#ff0000;border:none;color:white;padding: 15px 32px;text-align: center;text-decoration:none;display:inline-block;font-size:16px;">Back</a><br><br></div></div></div>';
                 get_footer();
                 exit;
             }
