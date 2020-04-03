@@ -13,7 +13,6 @@
 defined('ABSPATH') || exit;
 require_once ABSPATH . 'wp-content/plugins/woocommerce/woocommerce.php';
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-
 if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))
 {
         add_filter('woocommerce_payment_gateways', function ($methods)
