@@ -11,7 +11,6 @@
  */
 
 defined('ABSPATH') || exit;
-
 require_once ABSPATH . 'wp-content/plugins/woocommerce/woocommerce.php';
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
